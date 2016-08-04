@@ -330,3 +330,25 @@ def test_object():
     # base class for all other objects
     tobj = object()
     assert tobj is not None
+
+
+def test_oct():
+    # converts an int to octal (base 8) string
+    # note notation 'o' for octal
+    num = 8
+    assert oct(num) == '0o10'
+
+
+def test_ord():
+    # ord() gives you an int corresponding to a unicode char
+    assert ord('a') == 97
+
+
+def test_pow():
+    # just does the power
+    assert pow(2, 3) == 8
+
+    # you can also use more convinent syntax:
+    assert 2 ** 3 == 8
+
+    # both represent 2 to 3rd power
