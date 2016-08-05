@@ -352,3 +352,78 @@ def test_pow():
     assert 2 ** 3 == 8
 
     # both represent 2 to 3rd power
+
+
+def test_range():
+    # range gives the range between two integers
+    r = range(1, 4)
+    i = iter(r)
+    assert next(i) == 1
+    assert next(i) == 2
+
+
+def test_repr():
+    # repr and str are very similar
+    # both are string representations of objects
+    # most are the same anyway
+
+    # rule of thumb: repr() is for developers
+    # and str() is for customers
+    pass
+
+
+def test_reversed():
+    # t is sequence
+    t = [1, 2, 3, 4]
+    # a sequence is data store "one after the other"
+
+    # r is iterator
+    # an iterator just has a next function that returns
+    # the next element
+    r = reversed(t)
+    assert next(r) == 4
+    assert next(r) == 3
+
+
+def test_round():
+    pi = 3.141592
+    assert round(pi, 2) == 3.14
+
+
+def test_set():
+    # a set is an unordered collection of unique elements
+    s = set([1, 2, 3, 4])
+    assert len(s) == 4
+    assert 2 in s
+
+
+class ClassWithAttrs:
+
+    @property
+    def prop(self):
+        return self.prop
+
+    @prop.setter
+    def prop(self, value):
+        self.prop = value
+
+
+def test_setattr():
+    t = ClassWithAttrs()
+    setattr(t, 'prop', 4)
+    # same as t.prop = 4
+    # just another form of assignment
+    assert t.prop == 4
+
+    # this is convienent syntax if the property name
+    # is stored as a variable
+
+
+def test_slice():
+    r = range(0, 100)
+    # this means take every second element
+    # after #52 stopping before it gets to #100
+    even_after_fifty = r[52:100:2]
+    assert even_after_fifty[0] == 52
+    assert even_after_fifty[-1] == 98
+    # there is a slice() function but I don't like it much
